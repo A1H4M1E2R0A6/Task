@@ -1,4 +1,6 @@
 // BLOG  //
+const currentname = document.getElementById('firstName').value;
+console.
 import firebase from firestore
 window.CreateBlog= function(){
     const blogTitle = document.getElementById('blogTitle').value;

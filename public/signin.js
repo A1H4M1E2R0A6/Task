@@ -1,5 +1,6 @@
 
-
+import firebaseauth from firebaseConfig
+import firebaseauth from firebase
 
 
 //SING UP 

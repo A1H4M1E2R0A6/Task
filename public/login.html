@@ -4,44 +4,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <title>Login Page</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-
-<body>
-
-
-
-
-
-
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
   </head>
-
+  <style>
+    .divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+  </style>
   <body>
-    <form  id="loginForm" onsubmit="">
 
-      <div onsubmit="submit" class="form-outline mb-4">
-        <label class="form-label" for="email" style="font-weight: 400;" style="font-size:1.2rem">Email address</label>
-        <input type="email" id="email" required="required"  width="1" maxlength="30"
-          minlength="10" />
-      </div>
-      <div class="form-outline mb-4">
-        <label class="form-label" for="password" maxlength="30" style="font-weight: 400 " style="font-size:1.2rem"
-          minlength="8">Password</label>
-        <input type="password" id="password" required="required"  width="1" />
-      </div>
- <button onsubmit=""> </button>
-      <div class="col">
-        <a href="./login.html">Forgot password?</a>
-      </div>
-      </div>
+      <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-md-8 col-lg-7 col-xl-6">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                class="img-fluid" alt="Phone image">
+            </div>
+            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form1Example13" class="form-control form-control-lg" />
+                  <label class="form-label" for="form1Example13">Email address</label>
+                </div>
+      
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" id="form1Example23" class="form-control form-control-lg" />
+                  <label class="form-label" for="form1Example23">Password</label>
+                </div>
+      
+                <div class="d-flex justify-content-around align-items-center mb-4">
+                  <!-- Checkbox -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                    <label class="form-check-label" for="form1Example3"> Remember me </label>
+                  </div>
+                  <a href="#!">Forgot password?</a>
+                </div>
+      
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-secondary btn-lg btn-block"><a href="Dashboard.html">Sign in</a></button>
+      
+                <div class="divider d-flex align-items-center my-4">
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!-- Submit button  
+        <button type="Onsubmit( )" class="btn btn-primary btn-block mb-4">Log in</button>
+      
+         Register buttons 
+        <div class="text-center">
+          <p>Not a member? <a href="">Register</a></p>
+          <p>or sign up with:</p>
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-facebook-f"></i>
+          </button>
+      
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-google"></i>
+          </button>
+      
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-twitter"></i>
+          </button>
+      
+          <button type="button" class="btn btn-link btn-floating mx-1">
+            <i class="fab fa-github"></i>
+          </button>
+        </div>
+     </form>  -->
+    </body>
+
+    </html>
+      
     </form>
 
     <script src="login.js"></script>
@@ -86,85 +130,6 @@
 
 
 
-    <!-- <script src="app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
-    <script>
-  //  function Login=onsubmit  async (req, res, next) => {
-
-if (
-    !req.body?.email
-    || !req.body?.password
-) {
-    res.status(403);
-    res.send(`required parameters missing, 
-    example request body:
-    {
-        email: "some@email.com",
-        password: "some$password",
-    } `);
-    return;
-}
-req.body.email = req.body.email.toLowerCase();
-
-try {
-    let result = await userCollection.findOne({ email: req.body.email });
-    console.log("result: ", result);
-
-    if (!result) { // user not found
-        res.status(403).send({
-            message: "email or password incorrect"
-        });
-        return;
-    } else { // user found
-
-
-        const isMatch = await varifyHash(req.body.password, result.password)
-
-        if (isMatch) {
-            
-            const token = jwt.sign({
-                isAdmin: false,
-                firstName: result.firstName,
-                lastName: result.lastName,
-                email: req.body.email,
-            }, process.env.SECRET, {
-                expiresIn: '24h'
-            });
-
-            res.cookie('token', token, {
-                httpOnly: true,
-                secure: true,
-                // expires: new Date(dateAfter2MinInMili)
-            });
-
-            res.send({
-                message: "login successful"
-            });
-            return;
-        } else {
-            res.status(401).send({
-                message: "email or password incorrect"
-            })
-            return;
-        }
-    }
-
-} catch (e) {
-    console.log("error getting data mongodb: ", e);
-    res.status(500).send('server error, please try later');
-}
-
-    </script>
-  </body>
-  </html>
-  
-
-
-
-
-
- -->
 
 
 
@@ -178,36 +143,3 @@ try {
 
 
 
-
-
-
-    <!-- <form>
-        
-      
-        Submit button 
-        <button type="Onsubmit( )" class="btn btn-primary btn-block mb-4">Log in</button>
-      
-        Register buttons 
-        <div class="text-center">
-          <p>Not a member? <a href="">Register</a></p>
-          <p>or sign up with:</p>
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-facebook-f"></i>
-          </button>
-      
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-google"></i>
-          </button>
-      
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-twitter"></i>
-          </button>
-      
-          <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-github"></i>
-          </button>
-        </div>
-      </form> -->
-  </body>
-
-  </html>
