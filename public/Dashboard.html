@@ -1,0 +1,108 @@
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-4">
+    <div id="userProfile" class="mb-3">
+      <p>Welcome, User's Full Name! <button id="logoutButton" class="btn btn-secondary">Logout</button></p>
+    </div>
+
+    <div id="blogForm" class="mb-4">
+      <h2>Post a New Blog</h2>
+      <form id="postForm">
+        <div class="mb-3">
+          <input type="text" id="blogTitle" class="form-control" placeholder="Blog Title" minlength="5" maxlength="50" required>
+        </div>
+        <div class="mb-3">
+          <textarea id="blogBody" class="form-control" placeholder="Blog Body" minlength="100" maxlength="3000" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post Blog</button>
+      </form>
+    </div>
+
+    <div id="blogList">
+      <h2>Your Blogs</h2>
+      <ul id="blogItems">
+      //   Display blogs here 
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>  -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome to the Dashboard, <span id="userName"></span>!</h1>
+
+  <h2>Post a New Blog</h2>
+  <form id="postForm">
+    <label for="blogTitle">Title:</label>
+    <input type="text" id="blogTitle" name="blogTitle" required minlength="5" maxlength="50">
+
+    <label for="blogBody">Body:</label>
+    <textarea id="blogBody" name="blogBody" required maxlength="3000"></textarea>
+
+    <button type="submit" onsubmit="createBlog">Post</button>
+  </form>
+
+  <div id="blogList">
+    <h2>Your Blogs</h2>
+    <ul id="Your Blogs">
+   
+    </ul>
+  </div>
+  <h2>Previously Posted Blogs</h2>
+  <ul ></ul>
+
+  <button id="logoutButton">Logout</button>
+  <script src="dashboar.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+  <script>
+    
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

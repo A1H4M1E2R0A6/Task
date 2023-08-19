@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+</head>
+<body>
+  <h1>Your Profile</h1>
+  <form id="profileForm">
+    <label for="profilePhoto">Profile Photo URL:</label>
+    <input type="url" id="profilePhoto" name="profilePhoto">
+
+    <label for="profileFirstName">First Name:</label>
+    <input type="text" id="profileFirstName" name="profileFirstName" required minlength="3" maxlength="20">
+
+    <label for="profileLastName">Last Name:</label>
+    <input type="text" id="profileLastName" name="profileLastName" required minlength="1" maxlength="20">
+
+    <label for="newPassword">New Password:</label>
+    <input type="password" id="newPassword" name="newPassword" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z]).*$">
+
+    <label for="confirmNewPassword">Confirm New Password:</label>
+    <input type="password" id="confirmNewPassword" name="confirmNewPassword" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z]).*$">
+
+    <button type="submit">Update Profile</button>
+  </form>
+  <script src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-storage.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+  <script>
+    
+  </script>
+</body>
+</html>
